@@ -10,6 +10,9 @@ class Post(BaseModel):
     content: str
     published: bool = True
     rating: Optional[int] = None
+
+my_posts = [{"title": "title of post 1", "content": "content of post 1", "id": 1}, {"title": "favirote foods", "content": "I like pizza", "id": 2}]
+
     
 @app.get("/")
 async def root():
@@ -17,7 +20,7 @@ async def root():
 
 @app.get("/posts")
 def get_posts():
-    return {"data": "This is your post"}
+    return {"data": my_posts}
 
 '''@app.post("/createposts")
 def create_posts(payLoad: dict = Body(...)):
